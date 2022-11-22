@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>系统盘清理终极方法：使用符号链接转移大型文件 | 昕宇的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xinyu-jia.github.io/favicon.ico?v=1669098578334">
+<link rel="stylesheet" href="https://xinyu-jia.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我们在日常使用电脑的时候，经常发现系统盘不知不觉就红了。影响运行速度不说，还会让广大强迫症患者无比绝望。除了网上常见的转移虚拟内存分页文件、关闭快速启动、执行储存感知等方法，还有一种“终极大法”：把系统盘的某些文件挪到别的盘。
+
+某些软件，..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xinyu-jia.github.io">
+        <img src="https://xinyu-jia.github.io/images/avatar.png?v=1669098578334" class="site-logo">
+        <h1 class="site-title">昕宇的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://space.bilibili.com/1858989477?spm_id_from=333.1007.0.0" class="site-nav">
+            前往我的B站主页
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      昕宇的博客
+    </div>
+    <div class="site-footer">
+      友链  <a href="https://bbs.luobotou.org" target="_blank">萝卜头IT论坛</a> | <a class="rss" href="https://xinyu-jia.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">系统盘清理终极方法：使用符号链接转移大型文件</h2>
+            <div class="post-date">2022-11-22</div>
+            
+            <div class="post-content" v-pre>
+              <p>我们在日常使用电脑的时候，经常发现系统盘不知不觉就红了。影响运行速度不说，还会让广大强迫症患者无比绝望。除了网上常见的转移虚拟内存分页文件、关闭快速启动、执行储存感知等方法，还有一种“终极大法”：把系统盘的某些文件挪到别的盘。</p>
+<!-- more -->
+<p>某些软件，如Microsoft Office，似乎只能安装到系统盘，而且会占用很大的空间。如果直接挪到别的分区，可能会出现无法正常启动等问题。这时，符号链接就可以大显身手了。</p>
+<p><strong>先科普以下：</strong><br>
+<em>“符号链接（软链接）是一类特殊的文件， 其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用。[1] 符号链接最早在4.2BSD版本中出现（1983年）。今天POSIX操作系统标准、大多数类Unix系统、Windows Vista、Windows 7都支持符号链接。Windows 2000与Windows XP在某种程度上也支持符号链接。<br>
+符号链接的操作是透明的：对符号链接文件进行读写的程序会表现得直接对目标文件进行操作。某些需要特别处理符号链接的程序（如备份程序）可能会识别并直接对其进行操作。<br>
+一个符号链接文件仅包含有一个文本字符串，其被操作系统解释为一条指向另一个文件或者目录的路径。它是一个独立文件，其存在并不依赖于目标文件。如果删除一个符号链接，它指向的目标文件不受影响。如果目标文件被移动、重命名或者删除，任何指向它的符号链接仍然存在，但是它们将会指向一个不复存在的文件。这种情况被有时被称为被遗弃。”</em></p>
+<p>接下来详解如何使用符号链接：</p>
+<p>1、找到安装在C盘的软件，右键，打开文件所在的位置<br>
+<img src="https://xinyu-jia.github.io/post-images/1669081785090.png" alt="" loading="lazy"><br>
+可以很容易的溯源到软件安装路径<br>
+<img src="https://xinyu-jia.github.io/post-images/1669081860563.png" alt="" loading="lazy"><br>
+2、复制这个文件夹，粘贴到别的盘，然后给原文件夹随便重命名<br>
+<img src="https://xinyu-jia.github.io/post-images/1669082078440.png" alt="" loading="lazy"><br>
+3、以管理员身份运行命令提示符（终端），输入<br>
+mklink /d &quot;原文件夹改名前的路径{有引号)&quot; &quot;挪到的路径&quot;<br>
+例如我的office原来在&quot;C:\Program Files (x86)\Microsoft Office&quot;，我复制到了&quot;D:\Microsoft Office&quot;，命令如下：<br>
+<img src="https://xinyu-jia.github.io/post-images/1669082489601.png" alt="" loading="lazy"><br>
+接下来尝试运行刚刚转移的程序，如果可以正常使用，就能彻底删除刚刚重命名的文件夹了。<br>
+（删除后并不能释放占用空间，请及时清空回收站以释放空间。）</p>
+<p>这时有的小可爱就要问了：我看&quot;C:\Windows&quot;文件夹占用的空间最大，那能不能把它给挪走捏？😅<br>
+答案是不行，因为Windows在启动过程中不支持符号链接，所以以下文件夹不允许进行上述操作，否则会导致系统无法启动：<br>
+C:\<br>
+C:\Windows<br>
+C:\Windows\System32</p>
+<p>最后，感谢您能够看到这里，也感谢您关注我的博客！谢谢！❤️</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://xinyu-jia.github.io/post/xiao-bai-xiang-windows-xi-tong-jie-tu-fang-shi-zong-jie/">
+                  <h3 class="post-title">
+                    Windows系统截图方式总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e6e30f2fcbb708890caa',
+        clientSecret: '046696d05d08537adb9cb0bcad0acc547c4bcfcc',
+        repo: 'xinyu-jia.github.io',
+        owner: 'Xinyu-Jia',
+        admin: ['Xinyu-Jia'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

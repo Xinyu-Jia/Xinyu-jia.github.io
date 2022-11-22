@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>刷屏助手V1.0 | 昕宇的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xinyu-jia.github.io/favicon.ico?v=1669098578334">
+<link rel="stylesheet" href="https://xinyu-jia.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我们在网络生活中，经常会遇到一些在公屏打出大段重复内容的人，这种行为叫做刷屏（Flood the screen）。刷屏不可取，但是出于娱乐的目的，我尝试用python编写了一个刷屏软件，名字就叫做“刷屏助手”。
+
+以下是程序的基本信息：
+
+..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://xinyu-jia.github.io">
+        <img src="https://xinyu-jia.github.io/images/avatar.png?v=1669098578334" class="site-logo">
+        <h1 class="site-title">昕宇的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://space.bilibili.com/1858989477?spm_id_from=333.1007.0.0" class="site-nav">
+            前往我的B站主页
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      昕宇的博客
+    </div>
+    <div class="site-footer">
+      友链  <a href="https://bbs.luobotou.org" target="_blank">萝卜头IT论坛</a> | <a class="rss" href="https://xinyu-jia.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">刷屏助手V1.0</h2>
+            <div class="post-date">2022-11-11</div>
+            
+            <div class="post-content" v-pre>
+              <p>我们在网络生活中，经常会遇到一些在公屏打出大段重复内容的人，这种行为叫做刷屏（Flood the screen）。刷屏不可取，但是出于娱乐的目的，我尝试用python编写了一个刷屏软件，名字就叫做“刷屏助手”。</p>
+<!-- more -->
+<p>以下是程序的基本信息：<br>
+<img src="https://xinyu-jia.github.io/post-images/1668159922450.png" alt="" loading="lazy"></p>
+<p>运行效果：<br>
+<img src="https://xinyu-jia.github.io/post-images/1668159927074.png" alt="" loading="lazy"><br>
+<img src="https://xinyu-jia.github.io/post-images/1668162418198.png" alt="" loading="lazy"></p>
+<p>EXE下载地址：https://pan.huang1111.cn/s/le8gSL</p>
+<p>注：本程序由昕宇原创，程序中出现的名称是我的外号😁</p>
+
+            </div>
+            
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e6e30f2fcbb708890caa',
+        clientSecret: '046696d05d08537adb9cb0bcad0acc547c4bcfcc',
+        repo: 'xinyu-jia.github.io',
+        owner: 'Xinyu-Jia',
+        admin: ['Xinyu-Jia'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

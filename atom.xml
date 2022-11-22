@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://xinyu-jia.github.io</id>
+    <title>昕宇的博客</title>
+    <updated>2022-11-22T06:29:56.065Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://xinyu-jia.github.io"/>
+    <link rel="self" href="https://xinyu-jia.github.io/atom.xml"/>
+    <subtitle>昕宇的博客</subtitle>
+    <logo>https://xinyu-jia.github.io/images/avatar.png</logo>
+    <icon>https://xinyu-jia.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, 昕宇的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[系统盘清理终极方法：使用符号链接转移大型文件]]></title>
+        <id>https://xinyu-jia.github.io/post/xi-tong-pan-qing-li-zhong-ji-fang-fa-shi-yong-fu-hao-lian-jie-zhuan-yi-da-wen-jian/</id>
+        <link href="https://xinyu-jia.github.io/post/xi-tong-pan-qing-li-zhong-ji-fang-fa-shi-yong-fu-hao-lian-jie-zhuan-yi-da-wen-jian/">
+        </link>
+        <updated>2022-11-22T01:20:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们在日常使用电脑的时候，经常发现系统盘不知不觉就红了。影响运行速度不说，还会让广大强迫症患者无比绝望。除了网上常见的转移虚拟内存分页文件、关闭快速启动、执行储存感知等方法，还有一种“终极大法”：把系统盘的某些文件挪到别的盘。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们在日常使用电脑的时候，经常发现系统盘不知不觉就红了。影响运行速度不说，还会让广大强迫症患者无比绝望。除了网上常见的转移虚拟内存分页文件、关闭快速启动、执行储存感知等方法，还有一种“终极大法”：把系统盘的某些文件挪到别的盘。</p>
+<!-- more -->
+<p>某些软件，如Microsoft Office，似乎只能安装到系统盘，而且会占用很大的空间。如果直接挪到别的分区，可能会出现无法正常启动等问题。这时，符号链接就可以大显身手了。</p>
+<p><strong>先科普以下：</strong><br>
+<em>“符号链接（软链接）是一类特殊的文件， 其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用。[1] 符号链接最早在4.2BSD版本中出现（1983年）。今天POSIX操作系统标准、大多数类Unix系统、Windows Vista、Windows 7都支持符号链接。Windows 2000与Windows XP在某种程度上也支持符号链接。<br>
+符号链接的操作是透明的：对符号链接文件进行读写的程序会表现得直接对目标文件进行操作。某些需要特别处理符号链接的程序（如备份程序）可能会识别并直接对其进行操作。<br>
+一个符号链接文件仅包含有一个文本字符串，其被操作系统解释为一条指向另一个文件或者目录的路径。它是一个独立文件，其存在并不依赖于目标文件。如果删除一个符号链接，它指向的目标文件不受影响。如果目标文件被移动、重命名或者删除，任何指向它的符号链接仍然存在，但是它们将会指向一个不复存在的文件。这种情况被有时被称为被遗弃。”</em></p>
+<p>接下来详解如何使用符号链接：</p>
+<p>1、找到安装在C盘的软件，右键，打开文件所在的位置<br>
+<img src="https://xinyu-jia.github.io/post-images/1669081785090.png" alt="" loading="lazy"><br>
+可以很容易的溯源到软件安装路径<br>
+<img src="https://xinyu-jia.github.io/post-images/1669081860563.png" alt="" loading="lazy"><br>
+2、复制这个文件夹，粘贴到别的盘，然后给原文件夹随便重命名<br>
+<img src="https://xinyu-jia.github.io/post-images/1669082078440.png" alt="" loading="lazy"><br>
+3、以管理员身份运行命令提示符（终端），输入<br>
+mklink /d &quot;原文件夹改名前的路径{有引号)&quot; &quot;挪到的路径&quot;<br>
+例如我的office原来在&quot;C:\Program Files (x86)\Microsoft Office&quot;，我复制到了&quot;D:\Microsoft Office&quot;，命令如下：<br>
+<img src="https://xinyu-jia.github.io/post-images/1669082489601.png" alt="" loading="lazy"><br>
+接下来尝试运行刚刚转移的程序，如果可以正常使用，就能彻底删除刚刚重命名的文件夹了。<br>
+（删除后并不能释放占用空间，请及时清空回收站以释放空间。）</p>
+<p>这时有的小可爱就要问了：我看&quot;C:\Windows&quot;文件夹占用的空间最大，那能不能把它给挪走捏？😅<br>
+答案是不行，因为Windows在启动过程中不支持符号链接，所以以下文件夹不允许进行上述操作，否则会导致系统无法启动：<br>
+C:\<br>
+C:\Windows<br>
+C:\Windows\System32</p>
+<p>最后，感谢您能够看到这里，也感谢您关注我的博客！谢谢！❤️</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows系统截图方式总结]]></title>
+        <id>https://xinyu-jia.github.io/post/xiao-bai-xiang-windows-xi-tong-jie-tu-fang-shi-zong-jie/</id>
+        <link href="https://xinyu-jia.github.io/post/xiao-bai-xiang-windows-xi-tong-jie-tu-fang-shi-zong-jie/">
+        </link>
+        <updated>2022-11-15T10:12:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>当你上物理课时，老师展示了一页PPT，并表示一会儿提问，这时掌握一种快捷的截图方式就十分重要。那么，Windows系统下有哪些截图方式呢？我试着整理了一些。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>当你上物理课时，老师展示了一页PPT，并表示一会儿提问，这时掌握一种快捷的截图方式就十分重要。那么，Windows系统下有哪些截图方式呢？我试着整理了一些。</p>
+<!-- more -->
+<p>方法一：Win+Shift+S<br>
+适用：Windows10的大多数版本、Windows11</p>
+<p>同时按住键盘上的win、shift、S键<br>
+<img src="https://xinyu-jia.github.io/post-images/1668507588389.png" alt="" loading="lazy"><br>
+然后点击弹出的消息，如果没有请打开操作中心<br>
+<img src="https://xinyu-jia.github.io/post-images/1668647366898.png" alt="" loading="lazy"><br>
+按Ctrl+S或点击另存为<br>
+<img src="https://xinyu-jia.github.io/post-images/1668647404613.png" alt="" loading="lazy"></p>
+<p>方法二：截图工具<br>
+适用：Windows Vista及以上系统</p>
+<p>在开始菜单搜索“截图工具”<br>
+<img src="https://xinyu-jia.github.io/post-images/1668507703821.png" alt="" loading="lazy"><br>
+运行即可。</p>
+<p>方法三：Win+PrintScreen<br>
+适用：Windows8及以上系统</p>
+<p>同时按住win、PrtSc（有的老式键盘称为PrintScreenSys）<br>
+<img src="https://xinyu-jia.github.io/post-images/1668509544388.png" alt="" loading="lazy"><br>
+图片会保存至库&gt;图片&gt;屏幕截图。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668509648622.png" alt="" loading="lazy"></p>
+<p>方法四：操作中心&gt;屏幕截图<br>
+适用：Windows10</p>
+<p>同时按住win、A键，或将鼠标移到任务栏最右端对话泡图标处单击，打开操作中心<br>
+<img src="https://xinyu-jia.github.io/post-images/1668644476712.png" alt="" loading="lazy"><br>
+找到屏幕截图，点击即可。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668644904767.png" alt="" loading="lazy"><br>
+接下来的步骤同方法一。<br>
+很可惜，这个功能在Windows11中被砍掉了。</p>
+<p>方法五：直接按PrtSc键<br>
+适用：全版本的Windows</p>
+<p>这可能是Windows操作系统中最古老的截图方法了。直接按下PrtSc键，截图就已经保存在剪贴板了。你可以在钉钉直接Ctrl+V粘贴发送，也可以保存为图片文件。方法如下：</p>
+<p>先按PrtSc键，然后打开画图<br>
+<img src="https://xinyu-jia.github.io/post-images/1668646765758.bmp" alt="" loading="lazy"><br>
+粘贴，另存为<br>
+<img src="https://xinyu-jia.github.io/post-images/1668646833253.bmp" alt="" loading="lazy"><br>
+即可。</p>
+<p>此外，按下Alt+PrtSc还可以获取当前窗口截图。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668647006971.png" alt="" loading="lazy"></p>
+<p>以上就是我所知道的所有截图方法了。感谢你看到这里，也感谢你关注我的博客！再见！</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[自制初三牲专用壁纸]]></title>
+        <id>https://xinyu-jia.github.io/post/zi-zhi-chu-san-sheng-zhuan-yong-bi-zhi/</id>
+        <link href="https://xinyu-jia.github.io/post/zi-zhi-chu-san-sheng-zhuan-yong-bi-zhi/">
+        </link>
+        <updated>2022-11-14T03:18:04.000Z</updated>
+        <summary type="html"><![CDATA[<p>让你重拾被二次函数支配的恐惧🤣</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>让你重拾被二次函数支配的恐惧🤣</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://xinyu-jia.github.io/post-images/1668507066593.png" alt="" loading="lazy"></figure>
+<p>使用Adobe Photoshop CS6制作<br>
+以Windows11默认壁纸为基础。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[图片文档打印一片黑？不要再用全能扫描王了，这个软件免费无水印，超好用的]]></title>
+        <id>https://xinyu-jia.github.io/post/tu-pian-wen-dang-da-yin-yi-pian-hei-bu-yao-zai-yong-quan-neng-sao-miao-wang-liao-zhe-ge-ruan-jian-mian-fei-wu-shui-yin-chao-hao-yong-de/</id>
+        <link href="https://xinyu-jia.github.io/post/tu-pian-wen-dang-da-yin-yi-pian-hei-bu-yao-zai-yong-quan-neng-sao-miao-wang-liao-zhe-ge-ruan-jian-mian-fei-wu-shui-yin-chao-hao-yong-de/">
+        </link>
+        <updated>2022-11-12T09:27:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们在学习和生活中，有时需要将图片文档打印出来，但是如果直接打印就会一片黑，根本没法在上面写字，让渴望写作业的你濒临崩溃。<br>
+那么，如何是打印出来的图片文档像扫描的一样清晰呢？网上有PS、全能扫描王、WPS等方法，但是要么太麻烦，要么是敲诈勒索的流氓软件，要么美化出来全成白的了……😭<br>
+在这里，教大家一个很方便有效的方法——使用Microsoft Word。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们在学习和生活中，有时需要将图片文档打印出来，但是如果直接打印就会一片黑，根本没法在上面写字，让渴望写作业的你濒临崩溃。<br>
+那么，如何是打印出来的图片文档像扫描的一样清晰呢？网上有PS、全能扫描王、WPS等方法，但是要么太麻烦，要么是敲诈勒索的流氓软件，要么美化出来全成白的了……😭<br>
+在这里，教大家一个很方便有效的方法——使用Microsoft Word。</p>
+<!-- more -->
+<p>一、新建word文档，在“布局”下调整页边距为“窄”<br>
+<img src="https://xinyu-jia.github.io/post-images/1668246552450.png" alt="" loading="lazy"><br>
+二、插入要打印的图片文档<br>
+<img src="https://xinyu-jia.github.io/post-images/1668246597586.png" alt="" loading="lazy"><br>
+适当调整图片大小，如果调整不方便可以把“布局选项”改为“四周型”。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668246804623.png" alt="" loading="lazy"><br>
+三、右键图片&gt;设置图片格式&gt;图片&gt;图片校正<br>
+<img src="https://xinyu-jia.github.io/post-images/1668246903343.png" alt="" loading="lazy"><br>
+清晰度调为100%，亮度调为60%，对比度调为100%。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668247025997.png" alt="" loading="lazy"><br>
+注：数据不绝对，可以根据实际情况自行调整</p>
+<p>这时图片文档基本可以打印了，但是如果拍摄时露出了桌面/地板等，图片边缘可能变成红褐色。您可以参考以下步骤。<br>
+1)开始&gt;选项&gt;自定义功能区&gt;勾选绘图<br>
+<img src="https://xinyu-jia.github.io/post-images/1668247719846.png" alt="" loading="lazy"><br>
+2)在绘图中，使用白色笔涂掉即可。<br>
+<img src="https://xinyu-jia.github.io/post-images/1668247847729.png" alt="" loading="lazy"></p>
+<!-- more -->
+<p>怎么样？打印出来是不是顺眼多了😁</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[刷屏助手V1.0]]></title>
+        <id>https://xinyu-jia.github.io/post/shua-ping-zhu-shou-v10/</id>
+        <link href="https://xinyu-jia.github.io/post/shua-ping-zhu-shou-v10/">
+        </link>
+        <updated>2022-11-11T09:33:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们在网络生活中，经常会遇到一些在公屏打出大段重复内容的人，这种行为叫做刷屏（Flood the screen）。刷屏不可取，但是出于娱乐的目的，我尝试用python编写了一个刷屏软件，名字就叫做“刷屏助手”。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们在网络生活中，经常会遇到一些在公屏打出大段重复内容的人，这种行为叫做刷屏（Flood the screen）。刷屏不可取，但是出于娱乐的目的，我尝试用python编写了一个刷屏软件，名字就叫做“刷屏助手”。</p>
+<!-- more -->
+<p>以下是程序的基本信息：<br>
+<img src="https://xinyu-jia.github.io/post-images/1668159922450.png" alt="" loading="lazy"></p>
+<p>运行效果：<br>
+<img src="https://xinyu-jia.github.io/post-images/1668159927074.png" alt="" loading="lazy"><br>
+<img src="https://xinyu-jia.github.io/post-images/1668162418198.png" alt="" loading="lazy"></p>
+<p>EXE下载地址：https://pan.huang1111.cn/s/le8gSL</p>
+<p>注：本程序由昕宇原创，程序中出现的名称是我的外号😁</p>
+]]></content>
+    </entry>
+</feed>
